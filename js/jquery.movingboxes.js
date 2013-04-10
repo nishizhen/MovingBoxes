@@ -114,6 +114,10 @@
 			// Infinite loop
 			base.$el.children('.cloned').remove();
 			base.$panels = base.$el.children();
+  			if (base.$panels.length === 1) {
+                		base.$el.append(base.$panels.filter(':first').clone());
+                		base.$panels = base.$el.children();
+            		}
 			base.adj = (o.wrap && base.$panels.length > 1) ? 0 : 1; // count adjustment for infinite panels
 
 			base.width = (o.width) ? parseInt(o.width,10) : base.width;
